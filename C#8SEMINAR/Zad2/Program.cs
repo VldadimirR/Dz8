@@ -12,10 +12,7 @@ int columns = Convert.ToInt32(Console.ReadLine());
 
 int[,] array = GetArray(rows, columns, 0, 50);
 PrintArray(array);
-int count = SearchItemPosition(array);
 Console.WriteLine();
-ChangeArray(array);
-PrintArray(array);
 
 int[,] GetArray(int m, int n, int min, int max)
 {
@@ -44,9 +41,9 @@ void PrintArray(int[,] array)
 
 int[,] ChangeArray(int[,] array)
 {
-    for (int i = 0; i < array.GetLength(1); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = i; j < array.GetLength(1); j++)
+        for (int j = 0; j < i; j++)
         {
             int temp = array[i, j];
             array[i, j] = array[j, i];
@@ -58,3 +55,12 @@ int[,] ChangeArray(int[,] array)
     return array;
 }
 
+if(array.GetLength(0) == array.GetLength(1))
+{
+    ChangeArray(array);
+}
+else
+{
+    Console.WriteLine("Количество строк не равно количеству столбцов");
+}
+PrintArray(array);
