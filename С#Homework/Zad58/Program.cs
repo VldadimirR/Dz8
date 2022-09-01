@@ -38,7 +38,7 @@ int[,] GetArray(int m, int n)
     {
         for (int j = 0; j < n; j++)
         {
-            result[i, j] = new Random().Next(m, n);
+            result[i, j] = new Random().Next(10, 20);
         }
     }
     return result;
